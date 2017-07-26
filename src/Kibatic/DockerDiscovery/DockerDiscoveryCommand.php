@@ -27,6 +27,6 @@ class DockerDiscoveryCommand extends Command
 
         $dockerDiscovery = new DockerDiscovery();
 
-        $output->writeln($dockerDiscovery->discover($validImageNames));
+        $output->writeln($dockerDiscovery->discover($validImageNames, DockerDiscovery::FORMAT_JSON));
     }
 }

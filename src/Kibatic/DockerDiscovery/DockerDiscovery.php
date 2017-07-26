@@ -6,8 +6,15 @@ use Docker\Docker;
 
 class DockerDiscovery
 {
-    public function discover($validImageNames = [])
+    const FORMAT_ARRAY = 1;
+    const FORMAT_JSON = 2;
+
+    public function discover($validImageNames = [], $format = self::FORMAT_ARRAY)
     {
+        if (!in_array($format, [self::FORMAT_ARRAY, self::FORMAT_JSON])) {
+            throw new \Exception('Unsupported format');
+        }
+
         $docker = new Docker();
 
         $containers = $docker->getContainerManager()->findAll();
@@ -41,6 +48,10 @@ class DockerDiscovery
             ];
         }
 
-        return json_encode($results);
+        if ($format === self::FORMAT_JSON) {
+            return json_encode($results);
+        }
+
+        return $results;
     }
 }
