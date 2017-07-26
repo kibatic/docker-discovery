@@ -1,31 +1,13 @@
 <?php
 
-namespace Kibatic\Command;
+namespace Kibatic\DockerDiscovery;
 
 use Docker\Docker;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
-class DockerDiscoveryCommand extends Command
+class DockerDiscovery
 {
-    protected function configure()
+    public function discover($validImageNames = [])
     {
-        $this
-            ->setName('docker-discovery')
-            ->addArgument(
-                'patterns',
-                InputArgument::IS_ARRAY | InputArgument::REQUIRED,
-                'Image name pattern you want to match (separated by spaces). Ex: \'mariadb:.+\', \'mysql:.+\''
-            );
-        ;
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $validImageNames = $input->getArgument('patterns');
-
         $docker = new Docker();
 
         $containers = $docker->getContainerManager()->findAll();
@@ -59,6 +41,6 @@ class DockerDiscoveryCommand extends Command
             ];
         }
 
-        echo json_encode($results) . "\n";
+        return json_encode($results);
     }
 }
