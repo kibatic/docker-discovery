@@ -1,5 +1,7 @@
 {
     "name": "kibatic/docker-discovery",
+    "type": "library",
+    "licence": "MIT",
     "authors": [
         {
             "name": "jcrombez",
@@ -7,8 +9,8 @@
         }
     ],
     "autoload": {
-        "psr-4": {
-            "Kibatic\\": "src/Kibatic"
+        "psr-0": {
+            "Kibatic\\": ""
         }
     },
     "require": {
