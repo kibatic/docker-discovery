@@ -1,23 +1,23 @@
 {
-    "name": "kibatic/docker-discovery",
-    "type": "library",
-    "licence": "MIT",
-    "authors": [
-        {
-            "name": "jcrombez",
-            "email": "jeremy.crombez@kibatic.com"
-        }
-    ],
-    "autoload": {
-        "psr-0": {
-            "Kibatic\\": ""
-        }
-    },
-    "require": {
-        "docker-php/docker-php": "^1.24",
-        "symfony/console": "^3.3"
-    },
-    "bin": [
-      "bin/docker-discovery"
-    ]
+  "name": "kibatic/docker-discovery",
+  "type": "library",
+  "licence": "MIT",
+  "authors": [
+    {
+      "name": "jcrombez",
+      "email": "jeremy.crombez@kibatic.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Kibatic\\DockerDiscovery": "src"
+    }
+  },
+  "require": {
+    "docker-php/docker-php": "^1.24",
+    "symfony/console": "^3.3"
+  },
+  "bin": [
+    "bin/docker-discovery"
+  ]
 }
