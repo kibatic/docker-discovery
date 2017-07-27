@@ -15,7 +15,8 @@
   },
   "require": {
     "docker-php/docker-php": "^1.24",
-    "symfony/console": "^3.3"
+    "symfony/console": "^3.3",
+    "twig/twig": "^2.0"
   },
   "bin": [
     "bin/docker-discovery"
