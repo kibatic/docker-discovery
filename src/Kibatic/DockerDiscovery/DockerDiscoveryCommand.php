@@ -52,6 +52,6 @@ class DockerDiscoveryCommand extends Command
             return;
         }
 
-        $output->writeln(json_encode($containers));
+        $output->writeln(json_encode($containers, JSON_PRETTY_PRINT));
     }
 }
